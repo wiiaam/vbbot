@@ -7,9 +7,15 @@ Public Class Application
 	Public Shared Dim stream As Stream
     Public Shared Dim writer As StreamWriter
     Public Shared Dim reader As StreamReader
+    Public Shared Dim adminhost As String = "systemd.is.a.virus"
+    Public Shared Dim pw As String
 
 	Public Shared Sub Main()
+		Console.WriteLine("Enter nickserv password")
+		pw = Console.ReadLine()
 		connect()
+
+		send("PRIVMSG Nickserv :IDENTIFY " + pw)
 		join()
 		listen()
 	End Sub
