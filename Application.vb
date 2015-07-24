@@ -33,10 +33,15 @@ Public Class Application
 	            		send("PONG " + line.Split(" ".ToCharArray())(1))
             		End If
             		Dim split As String() = line.Split(" ".ToCharArray())
+            		Dim sender as String = split(0)
+            		sender = sender.SubString(1)
+            		Dim sendersplit as String() = sender.Split("!".ToCharArray())
+            		Dim sendernick as String = sendersplit(0)
+					Dim senderhost as String = sendersplit(1).split("@".ToCharArray())(1)
 					Console.WriteLine("HERE"+split(3)+"HERE")
             		If String.Compare(split(1), "PRIVMSG") = 0
             			If split(3).Equals(":.bots")
-	            			msg(split(2),"Reporting in! [VB.Net]")
+	            			msg(split(2),"Reporting in! [VB.Net] hahahhahh get triggered " + sendernick)
 	            		End If	
            			End If
            		Catch exc as Exception
